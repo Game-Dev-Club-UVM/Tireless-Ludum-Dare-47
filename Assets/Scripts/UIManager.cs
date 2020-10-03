@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -66,6 +67,11 @@ public class UIManager : MonoBehaviour
 		scoreAndCoin.SetActive(false);
 		gameOver.SetActive(true);
 		finalScoreText.text = ("Score: " + CalulateScore().ToString());
+	}
+
+	public void ResetGame()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 }
