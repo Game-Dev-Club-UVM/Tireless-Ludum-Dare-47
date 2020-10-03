@@ -895,6 +895,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234971185}
   m_CullTransparentMesh: 0
+--- !u!4 &1391330869 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1316046808013385033, guid: 641f1d0cdd634764cbb302a6268e9983,
+    type: 3}
+  m_PrefabInstance: {fileID: 3973924958446752561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1506270604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,5 +1605,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3973924957272115819, guid: 641f1d0cdd634764cbb302a6268e9983,
+        type: 3}
+      propertyPath: coinGFX
+      value: 
+      objectReference: {fileID: 1391330869}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641f1d0cdd634764cbb302a6268e9983, type: 3}
