@@ -7,19 +7,20 @@ using System;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    TextMeshPro scoreText;
+	TextMeshProUGUI scoreText;
 	[SerializeField]
-	TextMeshPro coinText;
+	TextMeshProUGUI coinText;
 
 	private float timer;
 
 
-	public TextMeshPro ScoreText { get => scoreText;}
-	public TextMeshPro CoinText { get => coinText;}
+	public TextMeshProUGUI ScoreText { get => scoreText;}
+	public TextMeshProUGUI CoinText { get => coinText;}
 
 	private void Update()
 	{
-		
+		SetScoreText(CalulateScore().ToString());
+		timer += Time.deltaTime;
 	}
 
 	public void SetCoinText(string text)
@@ -34,4 +35,12 @@ public class UIManager : MonoBehaviour
 	{
 		SetCoinText((Int32.Parse(coinText.text) + 1).ToString());
 	}
+
+	public int CalulateScore()
+	{
+		int time = (int)(timer * 10f);
+		int coin = (Int32.Parse(coinText.text) * 100);
+		return time + coin;
+	}
+
 }
