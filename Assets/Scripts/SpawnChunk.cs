@@ -12,6 +12,8 @@ public class SpawnChunk : MonoBehaviour
     public bool locked1 = false;
     public bool locked2 = false;
 
+    public float offset = -10;
+
     private GameObject chunk1;
     private GameObject chunk2;
     private GameObject chunk3;
@@ -36,8 +38,8 @@ public class SpawnChunk : MonoBehaviour
             locked2 = false;
             Destroy(chunk1);
             Destroy(chunk2);
-            chunk1 = Instantiate(chunkPrefabs[randomChunk1], new Vector3(0, 0, 0), Quaternion.Euler(0, 180, 0));
-            chunk2 = Instantiate(chunkPrefabs[randomChunk2], new Vector3(0, 0, 0), Quaternion.Euler(0, 270, 0));
+            chunk1 = Instantiate(chunkPrefabs[randomChunk1], new Vector3(0, 0, 0), Quaternion.Euler(0, 180 + offset, 0));
+            chunk2 = Instantiate(chunkPrefabs[randomChunk2], new Vector3(0, 0, 0), Quaternion.Euler(0, 270 + offset, 0));
         }
         else if (!locked2 && (pivotAngle <= 1 + minAngle / 4 && pivotAngle >= 1 - minAngle/4) || (pivotAngle <= -1 - minAngle / 4 && pivotAngle >= -1 + minAngle/4))
         {
@@ -45,8 +47,8 @@ public class SpawnChunk : MonoBehaviour
             locked1 = false;
             Destroy(chunk3);
             Destroy(chunk4);
-            chunk3 = Instantiate(chunkPrefabs[randomChunk1], new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
-            chunk4 = Instantiate(chunkPrefabs[randomChunk2], new Vector3(0, 0, 0), Quaternion.Euler(0, 90, 0));
+            chunk3 = Instantiate(chunkPrefabs[randomChunk1], new Vector3(0, 0, 0), Quaternion.Euler(0, 0 + offset, 0));
+            chunk4 = Instantiate(chunkPrefabs[randomChunk2], new Vector3(0, 0, 0), Quaternion.Euler(0, 90 + offset, 0));
         }
     }
 }

@@ -382,6 +382,7 @@ MonoBehaviour:
   minAngle: 0.001
   locked1: 0
   locked2: 0
+  offset: -10
 --- !u!4 &942233805
 Transform:
   m_ObjectHideFlags: 0
