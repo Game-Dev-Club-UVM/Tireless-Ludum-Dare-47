@@ -378,7 +378,9 @@ MonoBehaviour:
   - {fileID: 2971689953507976560, guid: ac3989cddf8a3854ab7ca72ccf8db411, type: 3}
   - {fileID: 2971689953507976560, guid: 7c79365c3c1137042a3928d5ffb444a0, type: 3}
   - {fileID: 2971689953507976560, guid: 377108f2db4b2ca4bb7cf80202390789, type: 3}
-  - {fileID: 2971689953507976560, guid: 7aef277feadf5954a80160903b4571a8, type: 3}
+  - {fileID: 2971689953507976560, guid: c85706043e9c5eb46926cc4e409f204e, type: 3}
+  - {fileID: 2971689953507976560, guid: f9f4d3cad40221e46a0a33fbd3814683, type: 3}
+  - {fileID: 2971689953507976560, guid: c314cb7022c48424d8b3ec6cc970c706, type: 3}
   centerPivotStr: Center Piviot
   minAngle: 0.001
   locked1: 0

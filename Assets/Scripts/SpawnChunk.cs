@@ -31,7 +31,7 @@ public class SpawnChunk : MonoBehaviour
         int randomChunk1 = Random.Range(0, chunkPrefabs.Count);
         int randomChunk2 = Random.Range(0, chunkPrefabs.Count);
         float pivotAngle = centerPivot.transform.rotation.y;
-        Debug.Log(pivotAngle);
+        
         // Check if player is entering any of the new chunks then replace the opposite one
         if (!locked1 && pivotAngle <= 0 + minAngle && pivotAngle >= 0 - minAngle) {
             locked1 = true;
@@ -40,15 +40,17 @@ public class SpawnChunk : MonoBehaviour
             Destroy(chunk2);
             chunk1 = Instantiate(chunkPrefabs[randomChunk1], new Vector3(0, 0, 0), Quaternion.Euler(0, 180 + offset, 0));
             chunk2 = Instantiate(chunkPrefabs[randomChunk2], new Vector3(0, 0, 0), Quaternion.Euler(0, 270 + offset, 0));
+            //Debug.Log("Refreshed chunks 1 & 2");
         }
-        else if (!locked2 && (pivotAngle <= 1 + minAngle / 4 && pivotAngle >= 1 - minAngle/4) || (pivotAngle <= -1 - minAngle / 4 && pivotAngle >= -1 + minAngle/4))
+        else if (!locked2 && (pivotAngle <= 1 + minAngle && pivotAngle >= 1 - minAngle) || (pivotAngle >= -1 - minAngle && pivotAngle <= -1 + minAngle))
         {
-            locked2 = true;
             locked1 = false;
+            locked2 = true;
             Destroy(chunk3);
             Destroy(chunk4);
             chunk3 = Instantiate(chunkPrefabs[randomChunk1], new Vector3(0, 0, 0), Quaternion.Euler(0, 0 + offset, 0));
             chunk4 = Instantiate(chunkPrefabs[randomChunk2], new Vector3(0, 0, 0), Quaternion.Euler(0, 90 + offset, 0));
+            //Debug.Log("Refreshed chunks 3 & 4");
         }
     }
 }
