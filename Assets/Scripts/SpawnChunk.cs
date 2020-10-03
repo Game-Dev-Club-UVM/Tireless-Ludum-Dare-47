@@ -40,7 +40,7 @@ public class SpawnChunk : MonoBehaviour
             Destroy(chunk2);
             chunk1 = Instantiate(chunkPrefabs[randomChunk1], new Vector3(0, 0, 0), Quaternion.Euler(0, 180 + offset, 0));
             chunk2 = Instantiate(chunkPrefabs[randomChunk2], new Vector3(0, 0, 0), Quaternion.Euler(0, 270 + offset, 0));
-            Debug.Log("Refreshed chunks 1 & 2");
+            //Debug.Log("Refreshed chunks 1 & 2");
         }
         else if (!locked2 && (pivotAngle <= 1 + minAngle && pivotAngle >= 1 - minAngle) || (pivotAngle >= -1 - minAngle && pivotAngle <= -1 + minAngle))
         {
@@ -50,7 +50,7 @@ public class SpawnChunk : MonoBehaviour
             Destroy(chunk4);
             chunk3 = Instantiate(chunkPrefabs[randomChunk1], new Vector3(0, 0, 0), Quaternion.Euler(0, 0 + offset, 0));
             chunk4 = Instantiate(chunkPrefabs[randomChunk2], new Vector3(0, 0, 0), Quaternion.Euler(0, 90 + offset, 0));
-            Debug.Log("Refreshed chunks 3 & 4");
+            //Debug.Log("Refreshed chunks 3 & 4");
         }
     }
 }
