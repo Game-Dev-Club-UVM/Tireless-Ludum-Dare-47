@@ -20,13 +20,13 @@ public class RunnerPlayerMovement : MonoBehaviour
 		if (!hasMoved && movement != 0)
 		{
             hasMoved = true;
-            if (movement < 0 && playerMoveState != 0)
+            if (movement > 0 && playerMoveState != 0)
             {
                 //move left
                 Player.transform.Translate(new Vector3(0, 0, -playerMoveDistance));
                 playerMoveState--;
             }
-            else if (movement > 0 && playerMoveState != 2)
+            else if (movement < 0 && playerMoveState != 2)
             {
                 //move right
                 Player.transform.Translate(new Vector3(0, 0, playerMoveDistance));
