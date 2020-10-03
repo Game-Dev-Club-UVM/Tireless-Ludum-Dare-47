@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0c4401aa3afdc4fa847247e9cbd7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinGFX: {fileID: 0}
+  coinGFX: {fileID: 1316046808013385033}
   bobDistance: 0.1
   rotateSpeed: 150
   bobSpeed: 0.5
