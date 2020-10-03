@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
 	private UIManager uiManager;
 	private void Awake()
 	{
-		uiManager = FindObjectOfType<UIManager>();
+		uiManager = FindObjectOfType<UIManager>().GetComponent<UIManager>();
 		startPos = coinGFX.position.y;
 		isGoingUp = Random.Range(0, 2) == 0;
 	}
@@ -35,7 +35,7 @@ public class Coin : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		uiManager.AddCoin();
-		Debug.Log("Coin Trigger");
+		Destroy(gameObject);
 	}
 
     void RotateCoin()
