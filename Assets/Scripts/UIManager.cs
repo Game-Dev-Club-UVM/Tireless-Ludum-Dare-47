@@ -22,14 +22,20 @@ public class UIManager : MonoBehaviour
 
 	private float timer;
 	private bool running = true;
+	
+	private Rigidbody playerRB;	// put a rigidbody on gameObject Circle (centerPivot -> tireModel -> empty.001 -> circle)
 
 	public TextMeshProUGUI ScoreText { get => scoreText;}
 	public TextMeshProUGUI CoinText { get => coinText;}
 
 	private RunnerPlayerMovement player;
+
+	public Animator playerAnimator;	//  SET IN THE INSPECTOORRRRR TO TIRE MODEL
 	private void Awake()
 	{
 		player = FindObjectOfType<RunnerPlayerMovement>().GetComponent<RunnerPlayerMovement>();
+		playerRB = FindObjectOfType<Rigidbody>().GetComponent<Rigidbody>();
+
 	}
 	private void Update()
 	{
@@ -64,6 +70,8 @@ public class UIManager : MonoBehaviour
 	{
 		running = false;
 		player.GameOver();
+		playerAnimator.SetBool("gameOver", true);
+		playerRB.isKinematic = false;
 		scoreAndCoin.SetActive(false);
 		gameOver.SetActive(true);
 		finalScoreText.text = ("Score: " + CalulateScore().ToString());
@@ -71,6 +79,8 @@ public class UIManager : MonoBehaviour
 
 	public void ResetGame()
 	{
+		playerAnimator.SetBool("gameOver", false);
+		playerRB.isKinematic = true;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
