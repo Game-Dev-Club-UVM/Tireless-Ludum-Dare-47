@@ -41,13 +41,14 @@ public class RunnerPlayerMovement : MonoBehaviour
 		{
             hasMoved = false;
         }
-        //rotateSpeed += Time.deltaTime;
-        //speed = Mathf.Atan(rotateSpeed /100) ;
-        //Rotates the player around the map
-        //Center.transform.Rotate(new Vector3(0, speed, 0));
-
+        // Rotates the player around the map
         rotateSpeed += Time.deltaTime;
-        Center.transform.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
+        speed = Mathf.Atan(rotateSpeed /100) ;
+        Center.transform.Rotate(new Vector3(0, speed, 0));
+
+        //Linear speed
+        //rotateSpeed += Time.deltaTime;
+        //Center.transform.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
     }
     public void GameOver()
 	{

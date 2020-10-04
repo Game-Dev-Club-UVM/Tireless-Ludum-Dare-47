@@ -34,8 +34,11 @@ public class Coin : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		uiManager.AddCoin();
-		Destroy(gameObject);
+		if(other.gameObject.tag == "Player")
+		{
+			uiManager.AddCoin();
+			Destroy(gameObject);
+		}
 	}
 
     void RotateCoin()
