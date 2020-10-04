@@ -292,6 +292,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6308030500123033679, guid: 9637b716d88e8f447b5e7bd353bafe89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394059095625986823, guid: 9637b716d88e8f447b5e7bd353bafe89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7505962846353446330, guid: 9637b716d88e8f447b5e7bd353bafe89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -351,6 +361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Center Piviot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656252718034659723, guid: 9637b716d88e8f447b5e7bd353bafe89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9637b716d88e8f447b5e7bd353bafe89, type: 3}
