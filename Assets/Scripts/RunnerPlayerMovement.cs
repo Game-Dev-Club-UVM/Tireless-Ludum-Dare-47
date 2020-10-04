@@ -60,6 +60,7 @@ public class RunnerPlayerMovement : MonoBehaviour
     }
     public void GameOver()
 	{
+        GetComponentInChildren<trailScript>().stopEmitting();
         running = false;
     }
 }
