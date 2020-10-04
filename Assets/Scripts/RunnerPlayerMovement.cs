@@ -13,9 +13,10 @@ public class RunnerPlayerMovement : MonoBehaviour
     public float playerMoveDistance = 5f;
     private int playerMoveState = 1; //0 left, 1 middle, 2 right
     private bool hasMoved = false;
-
+    private bool running = true;
     void Update()
     {
+        if (!running) { return; };
         float jump = Input.GetAxisRaw("Vertical");
         float movement = Input.GetAxisRaw("Horizontal");
 		if (!hasMoved && movement != 0)
@@ -38,8 +39,12 @@ public class RunnerPlayerMovement : MonoBehaviour
 		{
             hasMoved = false;
         }
-        
-        //Rotates the player around the map
+
+		//Rotates the player around the map
         Center.transform.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
+    }
+    public void GameOver()
+	{
+        running = false;
     }
 }

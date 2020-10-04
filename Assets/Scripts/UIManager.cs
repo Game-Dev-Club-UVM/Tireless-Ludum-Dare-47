@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,16 +12,32 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	TextMeshProUGUI coinText;
 
-	private float timer;
+	[SerializeField]
+	GameObject scoreAndCoin;
+	[SerializeField]
+	GameObject gameOver;
 
+	[SerializeField]
+	TextMeshProUGUI finalScoreText;
+
+	private float timer;
+	private bool running = true;
 
 	public TextMeshProUGUI ScoreText { get => scoreText;}
 	public TextMeshProUGUI CoinText { get => coinText;}
 
+	private RunnerPlayerMovement player;
+	private void Awake()
+	{
+		player = FindObjectOfType<RunnerPlayerMovement>().GetComponent<RunnerPlayerMovement>();
+	}
 	private void Update()
 	{
-		SetScoreText(CalulateScore().ToString());
-		timer += Time.deltaTime;
+		if (running)
+		{
+			SetScoreText(CalulateScore().ToString());
+			timer += Time.deltaTime;
+		}		
 	}
 
 	public void SetCoinText(string text)
@@ -41,6 +58,20 @@ public class UIManager : MonoBehaviour
 		int time = (int)(timer * 10f);
 		int coin = (Int32.Parse(coinText.text) * 100);
 		return time + coin;
+	}
+
+	public void GameOver()
+	{
+		running = false;
+		player.GameOver();
+		scoreAndCoin.SetActive(false);
+		gameOver.SetActive(true);
+		finalScoreText.text = ("Score: " + CalulateScore().ToString());
+	}
+
+	public void ResetGame()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 }

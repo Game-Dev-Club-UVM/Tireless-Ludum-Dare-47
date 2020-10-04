@@ -19,6 +19,15 @@ public class SpawnChunk : MonoBehaviour
     private GameObject chunk3;
     private GameObject chunk4;
 
+    private void Awake()
+    {
+        chunk1 = Instantiate(chunkPrefabs[Random.Range(0, chunkPrefabs.Count)], new Vector3(0, 0, 0), Quaternion.Euler(0, 180 + offset, 0));
+        chunk2 = Instantiate(chunkPrefabs[Random.Range(0, chunkPrefabs.Count)], new Vector3(0, 0, 0), Quaternion.Euler(0, 270 + offset, 0));
+        //chunk3 = Instantiate(chunkPrefabs[Random.Range(0, chunkPrefabs.Count)], new Vector3(0, 0, 0), Quaternion.Euler(0, 0 + offset, 0));
+        chunk4 = Instantiate(chunkPrefabs[Random.Range(0, chunkPrefabs.Count)], new Vector3(0, 0, 0), Quaternion.Euler(0, 90 + offset, 0));
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
