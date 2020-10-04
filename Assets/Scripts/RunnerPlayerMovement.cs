@@ -43,12 +43,20 @@ public class RunnerPlayerMovement : MonoBehaviour
         }
         // Rotates the player around the map
         rotateSpeed += Time.deltaTime;
-        speed = Mathf.Atan(rotateSpeed /100) ;
-        Center.transform.Rotate(new Vector3(0, speed, 0));
+        //speed = Mathf.Atan(rotateSpeed /100) ;
+        //Center.transform.Rotate(new Vector3(0, speed, 0));
+        if(rotateSpeed < 2000)
+		{
+            speed = Mathf.Clamp(-0.0001f * ((rotateSpeed) * (rotateSpeed)) + 0.2298f * (rotateSpeed) + 2.5609f, 10, 130);
+		}
+		else
+		{
+            speed = 130f;
+		}
 
         //Linear speed
         //rotateSpeed += Time.deltaTime;
-        //Center.transform.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
+        Center.transform.Rotate(new Vector3(0, speed * Time.deltaTime, 0));
     }
     public void GameOver()
 	{
