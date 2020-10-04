@@ -10,6 +10,8 @@ public class RunnerPlayerMovement : MonoBehaviour
     public GameObject Player;
 
     public float rotateSpeed = 5f;
+    [SerializeField]
+    float speed;
     public float playerMoveDistance = 5f;
     private int playerMoveState = 1; //0 left, 1 middle, 2 right
     private bool hasMoved = false;
@@ -39,8 +41,12 @@ public class RunnerPlayerMovement : MonoBehaviour
 		{
             hasMoved = false;
         }
+        //rotateSpeed += Time.deltaTime;
+        //speed = Mathf.Atan(rotateSpeed /100) ;
+        //Rotates the player around the map
+        //Center.transform.Rotate(new Vector3(0, speed, 0));
 
-		//Rotates the player around the map
+        rotateSpeed += Time.deltaTime;
         Center.transform.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
     }
     public void GameOver()
