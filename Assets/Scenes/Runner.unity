@@ -396,6 +396,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6313844350802853086, guid: 9637b716d88e8f447b5e7bd353bafe89,
+        type: 3}
+      propertyPath: m_Parameters.alignment
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6394059095625986823, guid: 9637b716d88e8f447b5e7bd353bafe89,
         type: 3}
       propertyPath: m_IsActive
@@ -460,6 +465,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Center Piviot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031834613902313221, guid: 9637b716d88e8f447b5e7bd353bafe89,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.457
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031834613902313221, guid: 9637b716d88e8f447b5e7bd353bafe89,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.267
       objectReference: {fileID: 0}
     - target: {fileID: 8656252718034659723, guid: 9637b716d88e8f447b5e7bd353bafe89,
         type: 3}
@@ -745,6 +760,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641f1d0cdd634764cbb302a6268e9983, type: 3}
+--- !u!1 &1424348809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7463056186426445880, guid: 9637b716d88e8f447b5e7bd353bafe89,
+    type: 3}
+  m_PrefabInstance: {fileID: 399696059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1424348812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424348809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124761de355f3724cae78852f87a2696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
 --- !u!43 &1659778668
 Mesh:
   m_ObjectHideFlags: 0
