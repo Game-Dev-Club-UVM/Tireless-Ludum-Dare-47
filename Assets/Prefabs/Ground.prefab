@@ -9876,7 +9876,8 @@ GameObject:
   - component: {fileID: 5193391454717590228}
   - component: {fileID: 5193391454717590229}
   - component: {fileID: 2790118865079248102}
-  m_Layer: 0
+  - component: {fileID: 8288700057845247061}
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11249,6 +11250,19 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &8288700057845247061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5193391454717590232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5193391454746852965
 GameObject:
   m_ObjectHideFlags: 0
