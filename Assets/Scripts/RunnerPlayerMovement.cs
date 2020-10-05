@@ -26,10 +26,21 @@ public class RunnerPlayerMovement : MonoBehaviour
     private bool isGrounded = true;
     private bool running = true;
 
+    private trailScript trailScript;
+
+    private void Awake() {
+        trailScript = GetComponentInChildren<trailScript>();
+    }
+
     void Update()
     {
         if (!running) { return; };
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded)
+        {
+            trailScript.startEmitting();
+        }
 
         float movement = Input.GetAxisRaw("Horizontal");
 		if (!hasMoved && isGrounded && movement != 0)
@@ -55,6 +66,7 @@ public class RunnerPlayerMovement : MonoBehaviour
         float jump = Input.GetAxisRaw("Vertical");
         if (!hasMoved && isGrounded && jump > 0)
 		{
+            trailScript.stopEmitting();
             JumpTarget.Translate(new Vector3(0, playerJumpDistance, 0));
             playerFallSpeed = 1;
         }
@@ -66,6 +78,7 @@ public class RunnerPlayerMovement : MonoBehaviour
 			{
                 JumpTarget.position =new Vector3(0,.5f, 0);
 			}
+
         }
         // Rotates the player around the map
         rotateSpeed += Time.deltaTime;
@@ -84,9 +97,15 @@ public class RunnerPlayerMovement : MonoBehaviour
         //rotateSpeed += Time.deltaTime;
         Center.transform.Rotate(new Vector3(0, speed * Time.deltaTime, 0));
     }
+
     public void GameOver()
 	{
-        GetComponentInChildren<trailScript>().stopEmitting();
+        trailScript.stopEmitting();
         running = false;
+    }
+
+    public bool getIsGrounded()
+    {
+        return isGrounded;
     }
 }
