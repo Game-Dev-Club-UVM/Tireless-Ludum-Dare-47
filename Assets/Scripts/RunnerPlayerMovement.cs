@@ -23,7 +23,9 @@ public class RunnerPlayerMovement : MonoBehaviour
 
     private int playerMoveState = 1; //0 left, 1 middle, 2 right
     private bool hasMoved = false;
+    [SerializeField]
     private bool isGrounded = true;
+    [SerializeField]
     private bool isGoingUp = false;
     private bool running = true;
 
@@ -65,13 +67,51 @@ public class RunnerPlayerMovement : MonoBehaviour
             hasMoved = false;
         }
         float jump = Input.GetAxisRaw("Vertical");
+        Rigidbody rb;
+        float fallMultiplier = 5.5f;
+        float lowJumpMultiplier = 2f;
+        if (!hasMoved && isGrounded && jump > 0)
+        {
+            isGoingUp = true;
+            trailScript.stopEmitting();
+            //JumpTarget.Translate(new Vector3(0, playerJumpDistance, 0));
+            playerFallSpeed = playerJumpDistance;
+		}
+		if(isGoingUp)
+		{
+            JumpTarget.Translate(new Vector3(0, playerFallSpeed * Time.deltaTime, 0));
+            if (JumpTarget.position.y > playerJumpDistance)
+            {
+                JumpTarget.position = new Vector3(0, playerJumpDistance, 0);
+                isGoingUp = false;
+            }
+        }
+        if (!isGoingUp)
+		{
+            playerFallSpeed += Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            JumpTarget.Translate(new Vector3(0, playerFallSpeed * Time.deltaTime, 0));
+            if (JumpTarget.position.y < 0.5)
+            {
+                JumpTarget.position = new Vector3(0, .5f, 0);
+            }
+        }
+        else if(isGoingUp && jump <= 0)
+		{
+            playerFallSpeed += Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            JumpTarget.Translate(new Vector3(0, playerFallSpeed * Time.deltaTime, 0));
+            if (JumpTarget.position.y < 0.5)
+            {
+                JumpTarget.position = new Vector3(0, .5f, 0);
+            }
+        }
 
-
+        //Jump
+        /*
         if (!hasMoved && isGrounded && jump > 0)
 		{
             isGoingUp = true;
             trailScript.stopEmitting();
-            JumpTarget.Translate(new Vector3(0, playerJumpDistance, 0));
+            //JumpTarget.Translate(new Vector3(0, playerJumpDistance, 0));
             playerFallSpeed = 1;
         }else if (isGoingUp)
 		{
@@ -93,7 +133,7 @@ public class RunnerPlayerMovement : MonoBehaviour
 			}
 
         }
-
+        */
 
         // Rotates the player around the map
         rotateSpeed += Time.deltaTime;

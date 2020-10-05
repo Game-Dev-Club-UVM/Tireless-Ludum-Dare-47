@@ -502,8 +502,10 @@ MonoBehaviour:
   rotateSpeed: 56.982937
   speed: 15.3308735
   playerMoveDistance: 3
-  playerJumpDistance: 5
+  playerJumpDistance: 4
   playerFallSpeed: 1
+  isGrounded: 1
+  isGoingUp: 0
 --- !u!1 &7505962847305115743
 GameObject:
   m_ObjectHideFlags: 0
