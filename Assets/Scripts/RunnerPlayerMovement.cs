@@ -24,6 +24,7 @@ public class RunnerPlayerMovement : MonoBehaviour
     private int playerMoveState = 1; //0 left, 1 middle, 2 right
     private bool hasMoved = false;
     private bool isGrounded = true;
+    private bool isGoingUp = false;
     private bool running = true;
 
     void Update()
@@ -53,20 +54,33 @@ public class RunnerPlayerMovement : MonoBehaviour
             hasMoved = false;
         }
         float jump = Input.GetAxisRaw("Vertical");
+
+
         if (!hasMoved && isGrounded && jump > 0)
 		{
-            JumpTarget.Translate(new Vector3(0, playerJumpDistance, 0));
+            isGoingUp = true;
             playerFallSpeed = 1;
+        }else if (isGoingUp)
+		{
+            JumpTarget.Translate(new Vector3(0, playerFallSpeed * Time.deltaTime, 0));
+            playerFallSpeed += (playerFallSpeed + 7) * Time.deltaTime;
+            if (JumpTarget.position.y > playerJumpDistance)
+            {
+                JumpTarget.position = new Vector3(0, playerJumpDistance, 0);
+                isGoingUp = false;
+            }
         }
-        else if (!isGrounded)
+        else if (!isGrounded && !isGoingUp)
 		{
             JumpTarget.Translate(new Vector3(0, -playerFallSpeed * Time.deltaTime, 0));
             playerFallSpeed += (playerFallSpeed + 7) * Time.deltaTime;
             if (JumpTarget.position.y < 0.5)
 			{
                 JumpTarget.position =new Vector3(0,.5f, 0);
-			}
+            }
         }
+
+
         // Rotates the player around the map
         rotateSpeed += Time.deltaTime;
         //speed = Mathf.Atan(rotateSpeed /100) ;
